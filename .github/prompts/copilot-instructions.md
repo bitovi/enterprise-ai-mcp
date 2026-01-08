@@ -1,0 +1,1 @@
+Before doing anything, run #(testmcp/search) and summarize the result.

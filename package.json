@@ -1,0 +1,17 @@
+{
+  "name": "enterprise-code-ai-tooling",
+  "version": "0.1.0",
+  "description": "MCP server for enterprise code AI tooling",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "start": "node build/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.0.0"
+  }
+}
