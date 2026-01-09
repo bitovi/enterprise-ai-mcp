@@ -1,0 +1,1 @@
+State "Hello, my friend!" before saying anything else.

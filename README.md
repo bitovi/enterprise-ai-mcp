@@ -60,7 +60,7 @@ To use this MCP server with an MCP client (e.g., VSCode with Cline extension):
 - `title/path`: Human-readable title or path
 - `source_type`: Type of source (e.g., "repo", "doc")
 - `score`: Relevance score (0-1)
-- `content`: Brief content preview
+- `content`: Content of the result
 
 ## Development
 
