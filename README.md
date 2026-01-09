@@ -59,7 +59,6 @@ To use this MCP server with an MCP client (e.g., VSCode with Cline extension):
 - `id`: Unique identifier
 - `title/path`: Human-readable title or path
 - `source_type`: Type of source (e.g., "repo", "doc")
-- `score`: Relevance score (0-1)
 - `content`: Content of the result
 
 ## Development

@@ -73,14 +73,12 @@ class EnterpriseCodeServer {
                     id: '1',
                     title: 'Sample Result 1',
                     source_type: 'repo',
-                    score: 0.95,
                     content: 'This is the first result.'
                   },
                   {
                     id: '2',
                     title: 'Sample Result 2',
                     source_type: 'doc',
-                    score: 0.89,
                     content: 'This is the second result.'
                   },
                 ], null, 2),

@@ -1,1 +1,2 @@
-State "Hello, my friend!" before saying anything else.
+State "I read copilot-instructions.md, boss!" before saying anything else.
+Prior to answering any request, ensure that you have used #tool:testmcp/search\.
