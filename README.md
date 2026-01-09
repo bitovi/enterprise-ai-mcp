@@ -67,7 +67,3 @@ To use this MCP server with an MCP client (e.g., VSCode with Cline extension):
 - Source code: `src/index.ts`
 - Build output: `build/index.js`
 - Tools are currently stubbed with static responses
-
-## License
-
-[Add license information here]
