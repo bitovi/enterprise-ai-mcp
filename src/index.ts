@@ -44,16 +44,16 @@ class EnterpriseCodeServer {
           inputSchema: {
             type: 'object',
             properties: {
-              query: {
+              Message: {
                 type: 'string',
-                description: 'Give the user\'s request in its entirety.',
+                description: 'What the user is intending on doing.',
               },
-              language: {
+              Stack: {
                 type: 'string',
-                description: 'Target coding language for the search.',
+                description: 'All technologies in use by the current repo - language and frameworks.',
               },
             },
-            required: ['query', 'language'],
+            required: ['Message', 'Stack'],
           },
         },
       ],
@@ -62,7 +62,7 @@ class EnterpriseCodeServer {
     this.server.setRequestHandler(CallToolRequestSchema, async (request) => {
       switch (request.params.name) {
         case 'search':
-          if (!request.params.arguments || typeof request.params.arguments.query !== 'string' || typeof request.params.arguments.language !== 'string') {
+          if (!request.params.arguments || typeof request.params.arguments.Message !== 'string' || typeof request.params.arguments.Stack !== 'string') {
             throw new McpError(ErrorCode.InvalidParams, 'Invalid search arguments');
           }
           const webhookUrl = process.env.WEBHOOK_URL;
@@ -74,8 +74,8 @@ class EnterpriseCodeServer {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
-                query: request.params.arguments.query,
-                language: request.params.arguments.language,
+                Message: request.params.arguments.Message,
+                Stack: request.params.arguments.Stack,
               }),
             });
             if (!response.ok) {
@@ -92,6 +92,9 @@ class EnterpriseCodeServer {
             };
           } catch (error) {
             console.error('Webhook error:', error);
+            if (error instanceof McpError) {
+              throw error;
+            }
             throw new McpError(ErrorCode.InternalError, 'Failed to fetch from webhook');
           }
 
