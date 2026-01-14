@@ -48,16 +48,16 @@ To use this MCP server with an MCP client (e.g., VSCode with Cline extension):
 
 ## Prompting Files
 
-The repository includes four prompting files to guide AI interactions and development:
+The repository includes four prompting files to guide AI interactions and development. These files all include a statement that the agent must read back to you so that you may confirm that the agent has used the file.
 
-- `AGENTS.md`: Agent instructions with required statements and tool usage.
-- `.github/copilot-instructions.md`: Specific instructions for GitHub Copilot usage with required statements and tool usage.
-- `.github/prompts/sampleSearch.prompt.md`: Sample prompt template that performs MCP search before executing tasks.
-- `.github/instructions/sample.instructions.md`: Development instructions applied to TypeScript files with coding standards and requirements.
+- `AGENTS.md`
+- `.github/copilot-instructions.md`
+- `.github/prompts/sampleSearch.prompt.md`
+- `.github/instructions/sample.instructions.md`
 
 ## Tools
 
-### mcp.search
+### enterpriseCode/search
 **Purpose**: Given a natural-language query or pasted text, return the best matches across all indexed repos/docs.
 
 **Inputs**:
