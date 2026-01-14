@@ -7,4 +7,4 @@ applyTo: "src/**/*.ts"
 - Read the README.md for setup and configuration instructions before making changes.
 - Ensure the README.md reflects any new features or changes made to the project.
 - State "I read sample.instructions.md, friend!" before saying anything else.
-- Prior to answering any request, ensure that you have used #tool:testmcp/search\.
+- Prior to answering any request, ensure that you have used #tool:enterpriseCode/search\.

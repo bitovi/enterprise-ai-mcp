@@ -1,6 +1,6 @@
 # Enterprise AI MCP Server
 
-An MCP (Model Context Protocol) server that provides tools for enterprise-scale AI assistance across indexed repositories and documentation. This server enables AI agents to efficiently search and retrieve code context for development tasks.
+An MCP (Model Context Protocol) server that provides tools for enterprise-scale AI assistance across indexed repositories and documentation. This server enables AI agents to efficiently search and retrieve code context for development tasks. AI agents will be prompted to use the MCP tool prior to beginning work through various files in the repo.
 
 ## Features
 
@@ -36,7 +36,7 @@ To use this MCP server with an MCP client (e.g., VSCode with Cline extension):
    ```json
    {
      "mcpServers": {
-       "enterprise-ai-mcp": {
+       "enterpriseCode": {
          "command": "node",
          "args": ["/path/to/enterprise-ai-mcp/build/index.js"]
        }
@@ -45,6 +45,15 @@ To use this MCP server with an MCP client (e.g., VSCode with Cline extension):
    ```
 
 3. The server will be automatically loaded by the MCP client.
+
+## Prompting Files
+
+The repository includes four prompting files to guide AI interactions and development:
+
+- `AGENTS.md`: Agent instructions with required statements and tool usage.
+- `.github/copilot-instructions.md`: Specific instructions for GitHub Copilot usage with required statements and tool usage.
+- `.github/prompts/sampleSearch.prompt.md`: Sample prompt template that performs MCP search before executing tasks.
+- `.github/instructions/sample.instructions.md`: Development instructions applied to TypeScript files with coding standards and requirements.
 
 ## Tools
 

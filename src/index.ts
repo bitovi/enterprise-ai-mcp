@@ -76,7 +76,7 @@ class EnterpriseCodeServer {
   constructor() {
     this.server = new Server(
       {
-        name: 'enterprise-code-ai-tooling',
+        name: 'enterpriseCode',
         version: '0.1.0',
       },
       {
@@ -101,17 +101,17 @@ class EnterpriseCodeServer {
       tools: [
         {
           name: 'search',
-          description: 'Given a natural-language query or pasted text, return the best matches across all indexed repos/docs.',
+          description: 'Given a natural-language request, return the best matches across all indexed repos/docs.',
           inputSchema: {
             type: 'object',
             properties: {
               query: {
                 type: 'string',
-                description: 'Natural-language query or text to search',
+                description: 'Give the user\'s request in its entirety.',
               },
               language: {
                 type: 'string',
-                description: 'Target coding language for the search',
+                description: 'Target coding language for the search.',
               },
             },
             required: ['query', 'language'],
@@ -146,7 +146,7 @@ class EnterpriseCodeServer {
   async run() {
     const transport = new StdioServerTransport();
     await this.server.connect(transport);
-    console.error('Enterprise Code AI Tooling MCP server running on stdio');
+    console.error('enterpriseCode MCP server running on stdio');
   }
 }
 

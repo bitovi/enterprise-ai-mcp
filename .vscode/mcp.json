@@ -1,6 +1,6 @@
 {
   "servers": {
-    "testMCP": {
+    "enterpriseCode": {
       "type": "stdio",
       "command": "npx",
       "args": ["-y", "tsx", "src/index.ts"]
