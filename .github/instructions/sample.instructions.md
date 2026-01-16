@@ -2,9 +2,4 @@
 applyTo: "src/**/*.ts"
 ---
 
-- When adding dependencies, update package.json and include a brief rationale in comments.
-- When updating functionality in a significant way, add corresponding tests in the `tests/` directory.
-- Read the README.md for setup and configuration instructions before making changes.
-- Ensure the README.md reflects any new features or changes made to the project.
-- State "I read sample.instructions.md, friend!" before saying anything else.
-- Prior to answering any request, ensure that you have used #tool:enterprisecode/search\.
+Before starting any task, you MUST use the enterpriseCode/search tool with a natural language query and the project's technology stack to find relevant code examples and documentation. This is a hard requirement, and cannot be skipped. If it fails, STOP and report the failure.

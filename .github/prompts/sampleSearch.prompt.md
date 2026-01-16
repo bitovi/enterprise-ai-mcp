@@ -6,6 +6,5 @@ tools: ["enterprisecode/search"]
 argument-hint: "task=what you want done"
 ---
 
-1) Run #tool:enterprisecode/search to find other relevant information. If it fails, STOP and report the failure.
+1) Before starting any task, you MUST use the enterpriseCode/search tool with a natural language query and the project's technology stack to find relevant code examples and documentation. This is a hard requirement, and cannot be skipped. If it fails, STOP and report the failure.
 2) Only after search succeeds, execute this task: ${input:task}
-3) When responding, state "I read sampleSearch.prompt.md, buddy!" before anything else.

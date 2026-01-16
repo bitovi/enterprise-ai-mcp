@@ -1,1 +1,1 @@
-Before starting any task, you MUST use the enterpriseCode/search tool with a natural language query and the project's technology stack to find relevant code examples and documentation. This is a hard requirement, and cannot be skipped.
+Before starting any task, you MUST use the enterpriseCode/search tool with a natural language query and the project's technology stack to find relevant code examples and documentation. This is a hard requirement, and cannot be skipped. If it fails, STOP and report the failure.
