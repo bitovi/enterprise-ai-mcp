@@ -1,2 +1,1 @@
-State "I read AGENTS.md, compadre!" before anything else.
-Prior to answering any request, ensure that you have used #tool:enterpriseCode/search.
+Before starting any task, you MUST use the enterpriseCode/search tool with a natural language query and the project's technology stack to find relevant code examples and documentation. This is a hard requirement, and cannot be skipped.
