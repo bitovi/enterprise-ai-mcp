@@ -40,17 +40,17 @@ class EnterpriseCodeServer {
       tools: [
         {
           name: 'search',
-          description: 'Given a natural-language request, return the best matches across all indexed repos/docs.',
+          description: 'Searches across indexed enterprise repositories and documentation using a natural language query and specified technology stack. Returns the most relevant code examples, files, and documentation to assist with development tasks and problem-solving.',
           inputSchema: {
             type: 'object',
             properties: {
-              Message: {
-                type: 'string',
-                description: 'What the user is intending on doing.',
-              },
+                  Message: {
+                    type: 'string',
+                    description: 'A detailed natural language description of the user\'s query, task, or intent. This should include specific goals, context, code-related actions, or problems to solve, helping the search find the most relevant matches across indexed repositories and documentation.',
+                  },
               Stack: {
                 type: 'string',
-                description: 'All technologies in use by the current repo - language and frameworks.',
+                description: 'A comma-separated list of all technologies, programming languages, frameworks, libraries, databases, and tools currently used in the project or repository. Examples: \'TypeScript, React, Node.js, Express, PostgreSQL\' or \'Python, Django, Flask, MongoDB\'. This ensures search results are tailored to the relevant tech stack.',
               },
             },
             required: ['Message', 'Stack'],
