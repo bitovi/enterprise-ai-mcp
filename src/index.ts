@@ -46,7 +46,7 @@ class EnterpriseCodeServer {
             properties: {
                   Message: {
                     type: 'string',
-                    description: 'A detailed natural language description of the user\'s query, task, or intent. This should include specific goals, context, code-related actions, or problems to solve, helping the search find the most relevant matches across indexed repositories and documentation.',
+                    description: 'A detailed natural language description of specifically the user\'s query, task, or intent - what they would like to implement. This should include specific goals, context, code-related actions, or problems to solve, helping the search find the most relevant matches across indexed repositories and documentation.',
                   },
               Stack: {
                 type: 'string',
