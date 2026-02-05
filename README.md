@@ -1,12 +1,10 @@
 # Enterprise AI MCP Server
 
-An MCP (Model Context Protocol) server that provides tools for enterprise-scale AI assistance across indexed repositories and documentation. This server enables AI agents to efficiently search and retrieve code context for development tasks. AI agents will be prompted to use the MCP tool prior to beginning work through various files in the repo.
+An MCP (Model Context Protocol) server that provides tools for enterprise-scale AI assistance across indexed repositories and documentation. This server enables AI agents to efficiently search and retrieve code context for development tasks.
 
 ## Features
 
-- **Search**: Natural language queries across all indexed repos and docs, filtered by target coding language
-
-All tools currently return stubbed responses for development and testing.
+- **Search**: Natural language queries across indexed repos/docs, tailored to a provided technology stack
 
 ## Installation
 
@@ -26,25 +24,37 @@ All tools currently return stubbed responses for development and testing.
    npm run build
    ```
 
-## Configuration
-
-To use this MCP server with an MCP client (e.g., VSCode with Cline extension):
-
-1. Ensure you have the MCP settings file at `~/.vscode-server/data/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json` (or equivalent for your client).
-
-2. Add the server configuration:
-   ```json
-   {
-     "mcpServers": {
-       "enterpriseCode": {
-         "command": "node",
-         "args": ["/path/to/enterprise-ai-mcp/build/index.js"]
-       }
-     }
-   }
+4. Run the server:
+   ```bash
+   npm run start
    ```
 
-3. The server will be automatically loaded by the MCP client.
+## Configuration
+
+### Environment
+
+This server requires a webhook endpoint for search. Create a `.env` file (see `.env.example`) and set:
+
+```
+WEBHOOK_URL=https://your-webhook-endpoint
+```
+
+### MCP Client Settings
+
+To use this MCP server with an MCP client (e.g., VS Code + Cline), add a server entry in your client’s MCP settings file (path varies by client and OS):
+
+```json
+{
+  "mcpServers": {
+    "enterpriseCode": {
+      "command": "node",
+      "args": ["/path/to/enterprise-ai-mcp/build/index.js"]
+    }
+  }
+}
+```
+
+The server will be loaded automatically by the MCP client.
 
 ## Prompting Files
 
@@ -57,21 +67,18 @@ The repository includes four prompting files to guide AI interactions and develo
 
 ## Tools
 
-### enterpriseCode/search
-**Purpose**: Given a natural-language query or pasted text, return the best matches across all indexed repos/docs.
+### search
+
+**Purpose**: Given a natural-language query and technology stack, return the best matches across all indexed repos/docs. Results are provided by the configured webhook.
 
 **Inputs**:
-- `query` (string, required): Natural-language query or text to search
-- `language` (string, required): Target coding language for the search
+- `Message` (string, required): A detailed natural-language description of the user’s query, task, or intent.
+- `Stack` (string, required): Comma-separated list of relevant technologies (e.g., `TypeScript, React, Node.js`).
 
-**Returns**: Array of ranked results with:
-- `id`: Unique identifier
-- `title/path`: Human-readable title or path
-- `source_type`: Type of source (e.g., "repo", "doc")
-- `content`: Content of the result
+**Returns**: JSON payload returned by the webhook (passed through as text).
 
 ## Development
 
 - Source code: `src/index.ts`
 - Build output: `build/index.js`
-- Tools are currently stubbed with static responses
+- The server forwards tool requests to `WEBHOOK_URL` and returns the JSON response.
