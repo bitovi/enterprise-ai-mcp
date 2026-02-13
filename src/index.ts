@@ -216,6 +216,8 @@ class EnterpriseCodeServer {
             const vectorStore = await QdrantVectorStore.fromExistingCollection(embeddings, {
               client,
               collectionName,
+              contentPayloadKey: 'document',
+              metadataPayloadKey: 'metadata',
             });
             const filter = {
               must: [
