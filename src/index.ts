@@ -97,9 +97,9 @@ class EnterpriseCodeServer {
       if (typeof org !== 'string' || typeof repository !== 'string' || typeof filePath !== 'string') {
         throw new McpError(ErrorCode.InvalidParams, 'Invalid fetch_file_from_git arguments');
       }
-      const githubToken = process.env.GITHUB_TOKEN;
+      const githubToken = process.env.GITHUB_ACCESS_TOKEN;
       if (!githubToken) {
-        throw new McpError(ErrorCode.InternalError, 'GITHUB_TOKEN not configured');
+        throw new McpError(ErrorCode.InternalError, 'GITHUB_ACCESS_TOKEN not configured');
       }
       const encodedPath = filePath
         .split('/')
